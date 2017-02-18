@@ -1,0 +1,44 @@
+#
+# Automatically generated file; DO NOT EDIT.
+# Kubernetes Minimal Turnup Configuration
+#
+
+#
+# Phase 1: Cluster Resource Provisioning
+#
+.phase1.num_nodes=1
+.phase1.cluster_name="kubernetes"
+.phase1.cloud_provider="photon"
+
+#
+# Photon Controller configuration
+#
+.phase1.photon.url="10.192.170.192"
+.phase1.photon.port="28080"
+.phase1.photon.username=""
+.phase1.photon.password=""
+.phase1.photon.tenant="k8s-test"
+.phase1.photon.project="k8s-proj"
+.phase1.photon.flavor="tiny-photon-vm"
+.phase1.photon.diskFlavor="tiny-photon-disk"
+.phase1.photon.image="ed8bd14a-7f9b-46fd-999f-39991a991c27"
+.phase1.photon.networks="5318a515489c96b95e31"
+.phase1.photon.flannel_net="172.1.0.0/16"
+
+#
+# Phase 2: Node Bootstrapping
+#
+#.phase2.installer_container="docker.io/ashivani/k8s-ignition:v51"
+.phase2.installer_container="docker.io/luomiao/k8s-ignition:v51"
+.phase2.docker_registry="docker.io/luomiao"
+.phase2.kubernetes_version="upstream-master"
+.phase2.provider="ignition"
+
+#
+# Phase 3: Deploying Addons
+#
+.phase3.run_addons=n
+.phase3.kube_proxy=n
+.phase3.dashboard=n
+.phase3.heapster=n
+.phase3.kube_dns=n
