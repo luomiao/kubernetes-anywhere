@@ -1,0 +1,60 @@
+menu "Photon Controller configuration"
+
+config phase1.photon.url
+	string "Photon Controller Endpoint URL Ex: 10.192.10.30"
+	help
+		The Photon Controller Endpoint Url
+
+config phase1.photon.port
+	string "Photon Controller Management port"
+	default 28080
+	help
+		The Photon Controller Endpoint port
+
+config phase1.photon.username
+	string "Photon Controller username"
+	help
+		The Photon Controller Username
+
+config phase1.photon.password
+	string "Photon Controller password"
+	help
+		The Photon Controller password
+
+config phase1.photon.tenant
+	string "Photon Controller tenant ID"
+	help
+		Tenant
+
+config phase1.photon.project
+	string "Photon Controller project ID"
+	help
+		Project
+
+config phase1.photon.flavor
+	string "Photon Controller flavor for VMs"
+	help
+		flavor for VMs
+
+config phase1.photon.diskFlavor
+	string "Photon Controller flavor for boot disks of VMs"
+	help
+		flavor for boot disks
+
+config phase1.photon.image
+	string "Image ID to clone VMs from"
+	help
+		Image ID to clone VMs from.
+
+config phase1.photon.networks
+	string "Network ID for VMs"
+	help
+		Network ID for VMs.
+
+config phase1.photon.flannel_net
+	string "Flannel Network"
+	default "172.1.0.0/16"
+	help
+		IP range used for flannel overlay network.
+
+endmenu

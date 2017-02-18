@@ -24,7 +24,7 @@ function(cfg)
               "--cluster-domain=cluster.local",
               "--v=2",
             ],
-            if cfg.role == "node" && phase1.cloud_provider != "vsphere" then
+            if cfg.role == "node" && phase1.cloud_provider != "vsphere" && phase1.cloud_provider != "photon" then
               [
                 "--network-plugin=kubenet",
                 "--reconcile-cidr",                
@@ -47,6 +47,10 @@ function(cfg)
               [
                 "--cloud-config=/etc/kubernetes/vsphere.conf"
               ],             
+            if phase1.cloud_provider == "photon" then
+              [
+                "--cloud-config=/etc/kubernetes/pc_cloud.conf"
+              ],
           ])),
         },
       }],

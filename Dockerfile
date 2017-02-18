@@ -3,6 +3,8 @@ FROM mhart/alpine-node:6.4.0
 
 RUN apk add --update bash
 ADD ./util/docker-build.sh /opt/
+ADD ./kubectl /opt/
+ADD ./terraform /opt/
 RUN /opt/docker-build.sh
 
 WORKDIR /opt/kubernetes-anywhere

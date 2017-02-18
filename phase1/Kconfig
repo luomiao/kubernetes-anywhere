@@ -17,7 +17,7 @@ config phase1.cluster_name
 	  and for naming any other cloud provider resources.
 
 menuconfig phase1.cloud_provider
-	string "cloud provider: gce, azure or vsphere"
+	string "cloud provider: gce, azure, vsphere or photon"
 	default "gce"
 	help
 	  The cloud provider you would like to deploy to.
@@ -32,6 +32,10 @@ endif
 
 if phase1.cloud_provider = "vsphere"
 	source "phase1/vsphere/Kconfig"
+endif
+
+if phase1.cloud_provider = "photon"
+	source "phase1/photon/Kconfig"
 endif
 
 endmenu

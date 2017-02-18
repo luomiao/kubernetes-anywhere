@@ -4,8 +4,9 @@ set -eux -o pipefail
 apk add --update git build-base wget curl jq autoconf automake pkgconfig ncurses-dev libtool gperf flex bison ca-certificates
 
 ## Install kubectl
-export KUBECTL_VERSION=1.4.0
-wget https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
+#export KUBECTL_VERSION=1.4.0
+#wget https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
+wget http://pa-dbc1112.eng.vmware.com/miaol/iso/kubectl-for-anywhere -O /usr/local/bin/kubectl
 chmod +x /usr/local/bin/kubectl
 
 ## Install Jsonnet
@@ -17,17 +18,19 @@ cp jsonnet /usr/local/bin)
 rm -rf /tmp/jsonnet
 
 ## Install Terraform
-export TERRAFORM_VERSION=0.7.2
-export TERRAFORM_SHA256SUM=b337c885526a8a653075551ac5363a09925ce9cf141f4e9a0d9f497842c85ad5
+#export TERRAFORM_VERSION=0.7.2
+#export TERRAFORM_SHA256SUM=b337c885526a8a653075551ac5363a09925ce9cf141f4e9a0d9f497842c85ad5
 
-mkdir -p /tmp/terraform/
-(cd /tmp/terraform
-wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS
-sed -i '/terraform_${TERRAFORM_VERSION}_linux_amd64.zip/!d' /tmp/terraform/terraform_${TERRAFORM_VERSION}_SHA256SUMS
-sha256sum -cs terraform_${TERRAFORM_VERSION}_SHA256SUMS
-unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /bin)
-rm -rf /tmp/terraform
+#mkdir -p /tmp/terraform/
+#(cd /tmp/terraform
+#wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+#wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS
+#sed -i '/terraform_${TERRAFORM_VERSION}_linux_amd64.zip/!d' /tmp/terraform/terraform_${TERRAFORM_VERSION}_SHA256SUMS
+#sha256sum -cs terraform_${TERRAFORM_VERSION}_SHA256SUMS
+#unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /bin)
+#rm -rf /tmp/terraform
+wget http://pa-dbc1112.eng.vmware.com/miaol/iso/terraform-photon-no-auth -O /bin/terraform
+
 
 ## Install azure-xplat-cli
 npm install -g azure-cli
